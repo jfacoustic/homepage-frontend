@@ -1,4 +1,4 @@
-(defproject tutorial "0.1.0-SNAPSHOT"
+(defproject homepage "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
@@ -29,7 +29,7 @@
   :cljsbuild {:builds {:app
                        {:source-paths ["src" "env/dev/cljs"]
                         :compiler
-                        {:main "tutorial.dev"
+                        {:main "homepage.dev"
                          :output-to "public/js/app.js"
                          :output-dir "public/js/out"
                          :asset-path   "js/out"
@@ -37,7 +37,7 @@
                          :optimizations :none
                          :pretty-print  true}
                         :figwheel
-                        {:on-jsload "tutorial.core/mount-root"
+                        {:on-jsload "homepage.core/mount-root"
                          :open-urls ["http://localhost:3449/index.html"]}}
                        :release
                        {:source-paths ["src" "env/prod/cljs"]

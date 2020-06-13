@@ -1,6 +1,6 @@
-(ns ^:figwheel-no-load tutorial.dev
+(ns ^:figwheel-no-load homepage.dev
   (:require
-    [tutorial.core :as core]
+    [homepage.core :as core]
     [devtools.core :as devtools]))
 
 (extend-protocol IPrintWithWriter

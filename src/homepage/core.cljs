@@ -1,4 +1,4 @@
-(ns tutorial.core
+(ns homepage.core
   (:require
    [reagent.core :as r]
    [reagent.dom :as d]
