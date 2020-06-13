@@ -1,5 +1,7 @@
 (ns homepage.core
   (:require
+   [homepage.navbar :refer [navbar]]
+   [homepage.home :refer [home]]
    [reagent.core :as r]
    [reagent.dom :as d]
    [secretary.core :as secretary  :include-macros true]
@@ -10,41 +12,32 @@
 
 ;; -------------------------
 ;; Views
-(defn homepage []
-  [:p "Joshua Mathews is a software developer, musician, adventurer, and advocate of the Oxford Comma.  He's currently a full-stack engineer at IBM."])
-(defn music []
-  [:p "MUSIC"])
 
-(def current-page (r/atom homepage))
+
+(def current-page (r/atom home))
 
 (secretary/defroute "/" [] 
-  (reset! current-page homepage))
-(secretary/defroute "/music" []
-  (reset! current-page music))
+  (reset! current-page home))
 
-  ;; -------------------------
-  ;; History
-  ;; must be called after routes have been defined
 
-  (defn hook-browser-navigation! []
-    (doto (History.)
-          (events/listen
-           HistoryEventType/NAVIGATE
-           (fn [event]
-             (secretary/dispatch! (.-token event))))
-          (.setEnabled true)))
+;; -------------------------
+;; History
+;; must be called after routes have been defined
+
+(defn hook-browser-navigation! []
+  (doto (History.)
+        (events/listen
+         HistoryEventType/NAVIGATE
+         (fn [event]
+           (secretary/dispatch! (.-token event))))
+        (.setEnabled true)))
   
-(defn nav-bar []
-  [:ul
-   [:li [:a {:href "/"} "Home"]]
-   [:li [:a {:href "/music"} "Music"]]
-   [:li [:a {:href "/resume"} "Resume"]]])
+
 
 
 (defn content []
   [:div
-   [:h1 "Josh Felton Mathews"]
-   [nav-bar]
+   [navbar]
    [@current-page]])
 ;; -------------------------
 ;; Initialize app

@@ -20,11 +20,11 @@
    [:cljsbuild :builds :app :compiler :output-to]]
 
   :resource-paths ["public"]
-
   :figwheel {:http-server-root "."
              :nrepl-port 7002
              :nrepl-middleware [cider.piggieback/wrap-cljs-repl]
-             :css-dirs ["public/css"]}
+             :css-dirs ["public/css"]
+             }
 
   :cljsbuild {:builds {:app
                        {:source-paths ["src" "env/dev/cljs"]
