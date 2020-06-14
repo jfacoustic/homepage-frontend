@@ -1,5 +1,6 @@
-(ns homepage.navbar)
-(require '[goog.dom.classlist :as gc])
+(ns homepage.navbar
+  (:require
+    [goog.dom.classlist :as gc]))
 
 (defn toggle-menu []
   (let [node (js/document.getElementById "navbar-menu")]
