@@ -1,4 +1,9 @@
 (ns homepage.navbar)
+(require '[goog.dom.classlist :as gc])
+
+(defn toggle-menu []
+  (let [node (js/document.getElementById "navbar-menu")]
+    (gc/toggle node "is-active")))
 
 (defn navbar-menu []
   [:div {:id "navbar-menu" :class "navbar-menu"}
@@ -12,7 +17,8 @@
        :class "navbar-burger burger"
        :aria-label "menu"
        :aria-expanded "false"
-       :data-target "navbar-menu"}
+       :data-target "navbar-menu"
+       :onClick toggle-menu}
    [:span {:aria-hidden "true"}]
    [:span {:aria-hidden "true"}]
    [:span {:aria-hidden "true"}]])
