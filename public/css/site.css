@@ -18,7 +18,9 @@
 .navbar-item {
   color: white;
 }
-
+.navbar-burger {
+  color: #3273dc
+}
 .introduction {
   background-color: rgba(50, 50, 50, 0.3);
   padding: 1em;
